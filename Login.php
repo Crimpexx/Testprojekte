@@ -5,6 +5,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=Daniel_test','root','root');
 if(isset($_POST['username'], $_POST['password'])) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+	$_SESSION['name'] = $username;
 	
 	$statement = $pdo->prepare("SELECT * FROM Username WHERE username = :username AND password = :password");
 	$result = $statement->execute(array('username' => $username, 'password' => $password));

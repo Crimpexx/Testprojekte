@@ -1,8 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Daniel Mayer
- * Date: 18.03.2016
- * Time: 10:54
- */
+session_start();
+$name = $_SESSION['name'];
+echo "Willkommen ".$name;
 ?>
