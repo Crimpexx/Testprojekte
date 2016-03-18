@@ -6,7 +6,7 @@ if(isset($_POST['username'], $_POST['password'])) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
-	$statement = $pdo->prepare("SELECT * FROM User WHERE username = :username AND password = :password");
+	$statement = $pdo->prepare("SELECT * FROM Username WHERE username = :username AND password = :password");
 	$result = $statement->execute(array('username' => $username, 'password' => $password));
 	$user = $statement->fetch();
 		
