@@ -14,7 +14,9 @@ if(isset($_POST["username2"], $_POST["realname2"], $_POST["passwort2"])) {
 
     $statement->execute(array('username' => $uname, 'password' => $pword, 'realname' => $rlname));
 
-    header('Location: http://192.168.1.252/Login.php');
+
+        header('Location: http://192.168.1.252/Login.php');
+
 }
 ?>
 
