@@ -16,23 +16,28 @@ if(isset($var)){
 
     foreach ($pdo->query($sql) as $row) {
 
-        echo $row["id"] . "   |     ".$row["username"]."   |    ". $row["realname"]. "<br />"."<hr/>";
-       ?>
+        echo $row["id"] . "   |     ".$row["username"]."   |    ". $row["realname"];
+     /*  <!--
         </form>
 
-        <form action ="Start.php" method = "post">
+        <form action ="Startb.php" method = "post">
 
         <input type="Submit" value="Bearbeiten">
         </form>
-        </form>
 
-        <form action ="Start.php" method = "post">
+
+        <form action ="Startd.php" method = "post">
 
             <input type="Submit" value="Delete">
         </form>
-        <?php
+        -->*/
 
 
+        ?>
+<a href="<?php echo "Startb.php?userid=".$row["id"]?>">Bearbeitung</a>
+<a href = "Startd.php">Löschen</a>
+        <hr/>
+<?php
 }
 }
 ?>
