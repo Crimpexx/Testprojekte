@@ -1,5 +1,6 @@
 <?php
-$var = ' ';
+
+$var ="";
 session_start();
 if(isset($var)){
     $pdo = new PDO('mysql:host=localhost;dbname=Daniel_test', 'root', 'root');
