@@ -1,24 +1,33 @@
 <?php
-$var ="";
-if(isset($var)) {
+$pdo = new PDO('mysql:host=localhost;dbname=Daniel_test','root','root');
+session_start();
+if(isset($_GET["userid"])){
+    $id = $_GET["userid"];
+}
 
-    $uname = $_POST["username2"];
 
-    $rlname = $_POST["realname2"];
 
-    $pword = $_POST["passwort2"];
+if(isset($_GET["username2"], $_GET["realname2"], $_GET["passwort2"])){
 
-    $pdo = new PDO('mysql:host=localhost;dbname=Daniel_test', 'root', 'root');
+    $uname = $_GET["username2"];
+
+    $rlname = $_GET["realname2"];
+
+    $pword = $_GET["passwort2"];
+
+
+
     $statement = $pdo->prepare("UPDATE Username SET username = :username, password = :password, realname = :realname WHERE id = :id");
-    $result = $statement->execute(array('username' => $uname, 'password' => $pword, 'realname' => $rlname));
-
+    $statement->execute(array('username' => $uname, 'password' => $pword, 'realname' => $rlname, 'id' => $id));
+    header('Location: http://192.168.1.252/Start.php');
 
 
 
 }
+
 ?>
 
-<form action="Startb.php" method="post">
+<form action="Startb.php" method="get">
 
     Neuer Echtname:<br />
     <input type="Text" name="realname2" /><br />
@@ -28,7 +37,7 @@ if(isset($var)) {
 
     Neues Passwort:<br />
     <input type="Password" name="passwort2" /><br />
-
+    <?php echo "<input type='hidden' name='userid' value='".$id."' />"?>
     <input type="Submit" value="Speichern" />
 
 </form>

@@ -6,7 +6,7 @@ if(isset($_POST['username'], $_POST['password'])) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	$_SESSION['name'] = $username;
-	$_SESSION['rname'] = $realname;
+	//$_SESSION['rname'] = $realname;
 	$_SESSION['paword'] = $password;
 
 	$statement = $pdo->prepare("SELECT * FROM Username WHERE username = :username AND password = :password");

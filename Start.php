@@ -1,3 +1,9 @@
+<html>
+<head>
+    <title>Startseite</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
 <?php
 
 $var ="";
@@ -5,7 +11,7 @@ session_start();
 if(isset($var)){
     $pdo = new PDO('mysql:host=localhost;dbname=Daniel_test', 'root', 'root');
     $name = $_SESSION['name'];
-    $rname = $_SESSION['rname'];
+    //$rname = $_SESSION['rname'];
     $paword = $_SESSION['paword'];
     echo "Willkommen " . $name." ! "."<br/>";
 
@@ -14,32 +20,26 @@ if(isset($var)){
     echo "<br/>";
 
     $sql = "SELECT * FROM Username";
+echo "<table border>";
 
     foreach ($pdo->query($sql) as $row) {
 
-        echo $row["id"] . "   |     ".$row["username"]."   |    ". $row["realname"];
-     /*  <!--
-        </form>
 
-        <form action ="Startb.php" method = "post">
+        echo "<tr>"."<td align='right'>".$row["id"]."</td>"."<td>".$row["username"]."</td>"."<td>".$row["realname"]."</td>";
 
-        <input type="Submit" value="Bearbeiten">
-        </form>
-
-
-        <form action ="Startd.php" method = "post">
-
-            <input type="Submit" value="Delete">
-        </form>
-        -->*/
 
 
         ?>
-<a href="<?php echo "Startb.php?userid=".$row["id"]?>">Bearbeitung</a>
-<a href = "Startd.php">Löschen</a>
-        <hr/>
+<td><a href="<?php echo "Startb.php?userid=".$row["id"]?>">Bearbeitung</a></td>
+<td><a href = "<?php echo "Startd.php?userid=".$row["id"]?>">Löschen</a></td>
+        </tr>
+
+
 <?php
-}
+    }
+
+
 }
 ?>
-
+</body>
+</html>

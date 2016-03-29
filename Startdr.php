@@ -2,14 +2,14 @@
 if(isset($_GET["userid"])){
     $id = $_GET["userid"];
 }
-
-if(!empty($_POST["userid"])){
-
+$var ="";
+if(isset($var)) {
 
     $pdo = new PDO('mysql:host=localhost;dbname=Daniel_test', 'root', 'root');
     $statement = $pdo->prepare("DELETE FROM Username WHERE id = :id");
-    $statement->execute(array('id' => $_POST["userid"]));
+    $statement->execute(array('id' => $id));
     header('Location: http://192.168.1.252/Start.php');
+
 
 //header('Location: /Start.php');
 }
@@ -22,11 +22,5 @@ if(!empty($_POST["userid"])){
 
     <?php echo "<input type='hidden' name='userid' value='".$id."' />"?>
     <input type="Submit" value="Ja" />
-
-</form>
-<form action ="Start.php" method="get">
-
-    <input type="submit" value="No">
-
 
 </form>
