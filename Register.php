@@ -1,8 +1,8 @@
 <?php
 
-$pdo = new PDO('mysql:host=localhost;dbname=Daniel_test','root','root');
+$pdo = new PDO('mysql:host=localhost;dbname=Daniel_test', 'root', 'root');
 
-if(isset($_POST["username2"], $_POST["realname2"], $_POST["passwort2"])) {
+if (isset($_POST["username2"], $_POST["realname2"], $_POST["passwort2"])) {
 
     $uname = $_POST["username2"];
 
@@ -15,22 +15,22 @@ if(isset($_POST["username2"], $_POST["realname2"], $_POST["passwort2"])) {
     $statement->execute(array('username' => $uname, 'password' => $pword, 'realname' => $rlname));
 
 
-        header('Location: http://192.168.1.252/Login.php');
+    header('Location: http://192.168.1.252/Login.php');
 
 }
 ?>
 
 <form name="registerform" action="Register.php" method="post">
 
-    Neuer Echtname:<br />
-    <input type="Text" name="realname2" /><br />
+    Neuer Echtname:<br/>
+    <input type="Text" name="realname2"/><br/>
 
-    Neuer Benutzername:<br />
-    <input type="Text" name="username2"><br /><br />
+    Neuer Benutzername:<br/>
+    <input type="Text" name="username2"><br/><br/>
 
-    Neues Passwort:<br />
-    <input type="Password" name="passwort2" /><br />
+    Neues Passwort:<br/>
+    <input type="Password" name="passwort2"/><br/>
 
-    <input type="Submit" value="Register" />
+    <input type="Submit" value="Register"/>
 
 </form>

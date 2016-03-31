@@ -1,9 +1,9 @@
 <?php
-if(isset($_GET["userid"])){
+if (isset($_GET["userid"])) {
     $id = $_GET["userid"];
 }
 
-if(!empty($_POST["userid"])){
+if (!empty($_POST["userid"])) {
 
 
     $pdo = new PDO('mysql:host=localhost;dbname=Daniel_test', 'root', 'root');
@@ -14,17 +14,16 @@ if(!empty($_POST["userid"])){
 //header('Location: /Start.php');
 }
 ?>
-<form  action="Startd.php" method="post">
+<form action="Startd.php" method="post">
 
-    Benutzer löschen?<br />
+    Benutzer löschen?<br/>
 
 
-
-    <?php echo "<input type='hidden' name='userid' value='".$id."' />"?>
-    <input type="Submit" value="Ja" />
+    <?php echo "<input type='hidden' name='userid' value='" . $id . "' />" ?>
+    <input type="Submit" value="Ja"/>
 
 </form>
-<form action ="Start.php" method="get">
+<form action="Start.php" method="get">
 
     <input type="submit" value="No">
 
