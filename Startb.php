@@ -19,11 +19,15 @@ if(isset($_GET["username2"], $_GET["realname2"], $_GET["passwort2"])){
 
     $statement = $pdo->prepare("UPDATE Username SET username = :username, password = :password, realname = :realname WHERE id = :id");
     $statement->execute(array('username' => $uname, 'password' => $pword, 'realname' => $rlname, 'id' => $id));
+
     header('Location: http://192.168.1.252/Start.php');
 
 
 
 }
+
+
+
 
 ?>
 
