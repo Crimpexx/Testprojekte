@@ -40,3 +40,9 @@ if (isset($_GET["username2"], $_GET["realname2"], $_GET["passwort2"])) {
     <input type="Submit" value="Speichern"/>
 
 </form>
+
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="datei"><br>
+    <input type="submit" value="Hochladen">
+    <?php echo "<input type='hidden' name='userid' value='" . $id . "' />"  ?>
+</form>
