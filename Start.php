@@ -26,9 +26,11 @@ if (isset($var)) {
 
     foreach ($pdo->query($sql) as $row) {
 
-
-        echo "<tr>" . "<td align='right'>" . $row["id"] . "</td>" . "<td>" . $row["username"] . "</td>" . "<td>" . $row["realname"] . "</td>";
-
+if(isset($row["bild"])) {
+    echo "<tr>" . "<td>" . "<img src=\"" . $row["bild"] . "\">" . "</td>" . "<td align='right'>" . $row["id"] . "</td>" . "<td>" . $row["username"] . "</td>" . "<td>" . $row["realname"] . "</td>";
+}else{
+    echo "<tr>" . "<td>" . "</td>" . "<td align='right'>" . $row["id"] . "</td>" . "<td>" . $row["username"] . "</td>" . "<td>" . $row["realname"] . "</td>";
+}
 
         ?>
         <td><a href="<?php echo "Startb.php?userid=" . $row["id"] ?>">Bearbeitung</a></td>
