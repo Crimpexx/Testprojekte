@@ -1,8 +1,11 @@
 <?php
-
+$idp = $_POST["userid"];
+var_dump($idp);
 $pdo = new PDO('mysql:host=localhost;dbname=Daniel_test', 'root', 'root');
 
-$statment= $pdo -> prepare("DELETE FROM Username WHERE id = :id" );
+$statement= $pdo -> prepare("DELETE FROM Username WHERE id = :id" );
 
-$statement->execute(array('id' => $_POST["userid"]));
+$statement->execute(array('id' => intval($idp)));
+
 ?>
+

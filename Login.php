@@ -9,6 +9,7 @@ if (isset($_POST['username'], $_POST['password'])) {
     //$_SESSION['rname'] = $realname;
     $_SESSION['paword'] = $password;
 
+
     $statement = $pdo->prepare("SELECT * FROM Username WHERE username = :username AND password = :password");
     $result = $statement->execute(array('username' => $username, 'password' => $password));
     $user = $statement->fetch();
@@ -32,12 +33,14 @@ if (isset($_POST['username'], $_POST['password'])) {
     Benutzername:<br/>
     <input type="Text" name="username"><br/><br/>
 
+
     Passwort:<br/>
     <input type="Password" name="password"/><br/>
 
     <input type="Submit" value="Login"/>
 
 </form>
+
 
 <form action="Register.php" method="post">
 

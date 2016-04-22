@@ -1,3 +1,14 @@
+<html>
+<header>
+    <title> Bearbeitung </title>
+</header>
+
+<body>
+
+
+
+
+
 <?php
 $pdo = new PDO('mysql:host=localhost;dbname=Daniel_test', 'root', 'root');
 session_start();
@@ -46,3 +57,6 @@ if (isset($_GET["username2"], $_GET["realname2"], $_GET["passwort2"])) {
     <input type="submit" value="Hochladen">
     <?php echo "<input type='hidden' name='userid' value='" . $id . "' />"  ?>
 </form>
+
+</body>
+</html>
